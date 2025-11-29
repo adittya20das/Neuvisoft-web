@@ -4,22 +4,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIVE HTML Practise
-    </title>
+    <title>NEUVISOFT.com</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* 1. Button container style: Basic look */
+        
+        .neuvisoft-btn {
+            height: 0.5cm;
+            min-height: 40px;
+            padding: 0 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            border: 2px solid #ff0000;
+            /* YouTube Red color border */
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        /* 2. Hover effect */
+        
+        .neuvisoft-btn:hover {
+            background-color: #ff0000;
+            /* YouTube Red background on hover */
+            border-color: #ff0000;
+        }
+        /* 3. Link (<a>) style: Text color fix */
+        
+        .neuvisoft-btn a {
+            text-decoration: none;
+            color: #ff0000;
+            /* Initial text color */
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        /* 4. Link hover effect */
+        
+        .neuvisoft-btn:hover a {
+            color: #ffffff;
+            /* Text color on hover */
+        }
+        /* 5. Icon style */
+        
+        .neuvisoft-btn .fa-youtube {
+            font-size: 1.2em;
+        }
+        
+        body {
+            background-image: url('https://wallpaperaccess.com/full/317501.jpg');
+            background-size: ;
+            /* Full screen cover */
+            background-attachment: fixed;
+            /* Fixed background */
+        }
+        
+        .tools-btn-powder:hover {
+            background-color: #b0e0e6;
+            border-color: #b0e0e6;
+        }
+        
+        .tools-btn-powder a {
+            color: #b0e0e6;
+            /* Initial Tools Text color */
+        }
+        
+        .tools-btn-powder:hover a {
+            color: #000000;
+            /* Tools Text color on hover */
+        }
+    </style>
 </head>
 
-<body background="https://wallpaperaccess.com/full/317501.jpg" style="color: rgb(255, 255, 255); font-family: , Tahoma, Geneva, Verdana, sans-serif; text-align: center;">
-    <p><b style="font-size: xx-large;"> Welcome to Neuvisoft!</b>
-        <br><i style="color: rgb(255, 168, 55);">Sir/Madam,</i><br>
-        <i style="color: rgb(255, 183, 74);">We are glad to have you here. Our website is developing in progress.Till than stay with us and stay tuned by subscribing our youtube channel "NEUVISOFT".<br>
-    If you have any question than mail us : adittya20das@gmail.com .<br>
-    <div style="font-size: large;"> <br>
-    <b style="color: rgba(3, 213, 255, 0.471);"> Neuvisoft is founded by Adittya Das during his student period.Neuvisoft is the combination of 3 words: Neuron, Vision & Software.It was founded on 4th July, 2025. The name was inspired from Microsoft and Intel Corporation.</b></i>
-        <br><br><b style="color: rgb(255, 247, 0);">@ All rights reserved by Neuvisoft 2025.</b></div>
+<body style="color: rgb(255, 255, 255); text-align: center;">
+    <p><b style="font-size: xx-large; font-family: cooper ;"> Welcome to Neuvisoft!</b></p>
 
+    <p style="color: rgb(255, 168, 55); ">Sir/Madam,
+        <br> We are glad to have you here. Our website is developing in progress.We will add more useful items to make your work easier. We are working hard and fast to make this website more user friendly and attractive.
+        <br> If you have any suggestion or question than mail us : <a href="mailto:adittya20das@gmail.com" style="color:aqua;">adittya20das@gmail.com</a>.
+        <br> Find us also in youtube :
+        <button class="neuvisoft-btn">
+            <a href="https://www.youtube.com/@Neuvisoft" target="_blank">
+                <i class="fa-brands fa-youtube"></i> 
+                Neuvisoft
+            </a>
+        </button>
+    </p>
+
+    <p>
+        <h3 style="color: greenyellow;">Everything is here for you:<br>
+            <br> ▫️<button class="neuvisoft-btn tools-btn-powder">
+            <a href="https://www.dailyusetools.com" target="_blank">
+                <i class="fa-solid fa-screwdriver-wrench"></i> 
+                DailyUseTools.com
+            </a>
+        </button> ▫️
+            <button class="neuvisoft-btn tools-btn-powder">
+                <a href="https://classpad.net/note/#/tools/math" target="_blank">
+                 <i class="fa-solid fa-calculator text-sky-600 text-xl"></i> 
+                 Casio Calculator Online
+                </a>
+            </button>
+            <br>
+            <br> ▫️<button class="neuvisoft-btn tools-btn-powder">
+                <a href="https://eyes.nasa.gov/apps/solar-system/#/home?embed=true" target="_blank">
+                 <i class="fa-solid fa-earth-americas text-green-600 text-xl"></i> 
+                 Live Solar System Track
+                </a>
+            </button> ▫️
+            <button class="neuvisoft-btn tools-btn-powder">
+                <a href="https://www.photopea.com/" target="_blank">
+                 <i class="fa-solid fa-image text-red-600 text-xl"></i> 
+                    Photoshop alternative - Online
+                </a>
+            </button>
+
+            <br><br> ▫️<button class="neuvisoft-btn tools-btn-powder">
+                <a href="https://www.canva.com/" target="_blank">
+                 <i class="fa-brands fa-canva text-blue-600 text-xl"></i> 
+                    Canva - Online
+                </a>
+            </button>
+
+        </h3>
     </p>
 
 
+    <br><br>
+    <p style="color: rgba(255, 255, 255, 0.992);"><b><i> Neuvisoft is founded by Adittya Das during his student period.Neuvisoft is the combination of 3 words: Neuron, Vision & Software.
+    It was founded on 4th July, 2025. The name was inspired from Microsoft and Intel Corporation.</b></i>
+        <br><br><b style="color: rgb(255, 247, 0);"><marquee width="%" direction="left" height="">@ All rights reserved by Neuvisoft 2025. </marquee></b>
+    </p>
 </body>
 
 </html>
