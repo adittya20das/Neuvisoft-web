@@ -11,18 +11,18 @@
         /* 1. Button container style: Basic look */
         
         .neuvisoft-btn {
-            height: 0.5cm;
-            min-height: 40px;
-            padding: 0 1rem;
+            height: 15px;
+            min-height: 30px;
+            padding: 10px 16px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background-color: transparent;
             border: 2px solid #ff0000;
             /* YouTube Red color border */
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s;
+            transition: background-color 0.1s, border-color 0.1s;
         }
         /* 2. Hover effect */
         
@@ -57,14 +57,40 @@
         
         body {
             background-image: url('https://wallpaperaccess.com/full/317501.jpg');
-            background-size: ;
-            /* Full screen cover */
+            /* Background image URL */
             background-attachment: fixed;
             /* Fixed background */
         }
         
+        .All-buttons {
+            height: 15px;
+            min-height: 30px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            border: 2px solid #00ffd0;
+            /* Powder Blue border color */
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.1s, border-color 0.1s;
+            margin: 10px;
+        }
+        
+        .All-buttons a {
+            text-decoration: none;
+            color: #00ffd0;
+            /* Initial Text color */
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        
         .tools-btn-powder:hover {
-            background-color: #b0e0e6;
+            background-color: #1e95a5;
             border-color: #b0e0e6;
         }
         
@@ -76,6 +102,41 @@
         .tools-btn-powder:hover a {
             color: #000000;
             /* Tools Text color on hover */
+        }
+        /* 3. Blinking dots animation for 'Coming Soon...' */
+        
+        @keyframes blink {
+            0% {
+                opacity: 0.2;
+            }
+            25% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 0.2;
+            }
+        }
+        
+        .dots span {
+            opacity: 0.2;
+            animation: blink 1.5s infinite;
+            display: inline-block;
+            font-size: 2em;
+            width: 0.2em;
+            text-align: left;
+        }
+        
+        .dots span:nth-child(2) {
+            animation-delay: 0.5s;
+            /* Serial blink timing */
+        }
+        
+        .dots span:nth-child(3) {
+            animation-delay: 1s;
+            /* Serial blink timing */
         }
     </style>
 </head>
@@ -98,51 +159,51 @@
     <p>
         <h3 style="color: greenyellow;">Everything is here for you:<br>
             <br> &nbsp;
-            <button class="neuvisoft-btn tools-btn-powder">
+            <button class="All-buttons tools-btn-powder">
             <a href="https://www.dailyusetools.com" target="_blank">
                 <i class="fa-solid fa-screwdriver-wrench"></i> 
                 DailyUseTools.com
             </a>
         </button> &nbsp;
-            <button class="neuvisoft-btn tools-btn-powder">
+            <button class="All-buttons tools-btn-powder">
                 <a href="https://classpad.net/note/#/tools/math" target="_blank">
                  <i class="fa-solid fa-calculator text-sky-600 text-xl"></i> 
                  Casio Calculator Online
                 </a>
             </button>
             <br><br> &nbsp;
-            <button class="neuvisoft-btn tools-btn-powder">
+            <button class="All-buttons tools-btn-powder">
                 <a href="https://eyes.nasa.gov/apps/solar-system/#/home?embed=true" target="_blank">
                  <i class="fa-solid fa-earth-americas text-green-600 text-xl"></i> 
                  Live Solar System Track
                 </a>
             </button> &nbsp;
-            <button class="neuvisoft-btn tools-btn-powder">
+            <button class="All-buttons tools-btn-powder">
                 <a href="https://www.photopea.com/" target="_blank">
                  <i class="fa-solid fa-image text-red-600 text-xl"></i> 
-                    Photoshop alternative - Online
+                    Photoshop - Online
                 </a>
             </button>
 
             <br><br> &nbsp;
-            <button class="neuvisoft-btn tools-btn-powder">
+            <button class="All-buttons tools-btn-powder">
                 <a href="https://www.canva.com/" target="_blank">
                  <i class="fa-solid fa-brush text-blue-600 text-xl"></i> 
                     Canva - Online
                 </a>
             </button> &nbsp;
-            <button class="neuvisoft-btn tools-btn-powder">
+            <button class="All-buttons tools-btn-powder">
                     <a href="https://aistudio.google.com" target="_blank">
                     <i class="fa-solid fa-brain"></i> 
                         Google AI Studio
                     </a>
                 </button>
             <br><br> &nbsp;
-            <button class="neuvisoft-btn tools-btn-powder">
-                    <a href="" target="_blank">
-                    <i class="fa-solid fa-clock"></i> 
-                        Coming Soon...
-                    </a>       
+            <button class="All-buttons tools-btn-powder">
+                   <a href="#" onclick="event.preventDefault();">
+                <i class="fa-solid fa-clock"></i> 
+                Coming Soon<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+            </a> 
         </h3>
     </p>
 
