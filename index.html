@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEUVISOFT.com</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts for universal support -->
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cooper&display=swap" rel="stylesheet">
 
     <style>
         /* 1. Button container style: Basic look */
@@ -70,10 +73,10 @@
         /*BODY WITH BACKGROUND*/
         
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: white;
+            margin: 0rem;
+            padding: 0rem;
+            font-family: 'Inter', sans-serif;
+            color: rgb(255, 255, 255);
             text-align: center;
             /* Using the high-quality galaxy image from Unsplash */
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
@@ -87,16 +90,16 @@
         
         .All-buttons {
             height: 35px;
-            min-height: 20px;
+            min-height: 30px;
             padding: 10px 16px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background-color: transparent;
-            border: 2px solid #00ffd0;
+            border: px solid #00ffd0;
             /* Powder Blue border color */
-            border-radius: 50px;
-            cursor: pointer;
+            border-radius: 80px;
+            cursor: auto;
             transition: background-color 0.1s, border-color 0.1s;
             margin: 10px;
         }
@@ -145,20 +148,25 @@
         
         .dots span {
             opacity: 0.2;
-            animation: blink 1.5s infinite;
+            animation: blink 1s infinite;
             display: inline-block;
             font-size: 2em;
             width: 0.2em;
             text-align: left;
         }
         
+        .dots span:nth-child(1) {
+            animation-delay: 0.3s;
+            /* Serial blink timing */
+        }
+        
         .dots span:nth-child(2) {
-            animation-delay: 0.5s;
+            animation-delay: 0.6s;
             /* Serial blink timing */
         }
         
         .dots span:nth-child(3) {
-            animation-delay: 1s;
+            animation-delay: 0.9s;
             /* Serial blink timing */
         }
         /* --- SHIMMER EFFECT LOGIC --- */
@@ -173,11 +181,12 @@
         }
         
         .divine-reveal {
-            font-size: 18px;
+            font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+            /* Responsive size */
             color: #00ffd0;
             /* Powder Blue */
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 0.5px;
             font-weight: 600;
             opacity: 0;
             animation: fastAppear 1s ease-out forwards;
@@ -222,13 +231,13 @@
         /* --- NEON GLOW BLINK EFFECT --- */
         
         .neon-keyword {
-            font-size: 14px;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
             color: rgb(255, 255, 255);
             /* Standard normal color */
             text-transform: uppercase;
-            letter-spacing: 8px;
+            letter-spacing: 4px;
             font-weight: 500;
-            margin-top: 5px;
+            margin-top: 20px;
             animation: neonBlink 1.5s infinite;
         }
         
@@ -255,7 +264,7 @@
         <div class="divine-reveal">Built with passion, driven by innovation</div>
         <div class="divine-shimmer"></div>
     </div>
-    <br><b style="font-size: xxx-large; font-family: cooper;">N E U V I S O F T</b></p>
+    <br><b style="font-size: 50px; font-family: 'Righteous', cursive;">NEUVISOFT</b></p>
     <div class="neon-keyword">neuron • vision • software</div>
     <p style="color: rgb(255, 168, 55); ">Sir/Madam,
         <br> We are glad to have you here. Our website is developing in progress.We will add more useful items to make your work easier. We are working hard and fast to make this website more user friendly and attractive.
