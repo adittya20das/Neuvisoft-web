@@ -23,6 +23,19 @@
             border-radius: 50px;
             cursor: pointer;
             transition: background-color 0.1s, border-color 0.1s;
+            animation: neuvisoft-btn-neon-blink 3s infinite;
+        }
+        
+        @keyframes neuvisoft-btn-neon-blink {
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgb(255, 0, 0);
+                border-color: #ff0000;
+            }
+            50% {
+                box-shadow: 0 0 15px rgb(255, 0, 0), 0 0 25px rgba(255, 0, 0, 0.3);
+                border-color: #ff0000;
+            }
         }
         /* 2. Hover effect */
         
@@ -54,13 +67,23 @@
         .neuvisoft-btn .fa-youtube {
             font-size: 1.2em;
         }
+        /*BODY WITH BACKGROUND*/
         
         body {
-            background-image: url('https://wallpaperaccess.com/full/317501.jpg');
-            /* Background image URL */
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            /* Using the high-quality galaxy image from Unsplash */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
-            /* Fixed background */
+            background-repeat: no-repeat;
+            background-color: #000;
         }
+        /* --- POWDER BLUE BUTTON STYLE --- */
         
         .All-buttons {
             height: 35px;
@@ -138,20 +161,110 @@
             animation-delay: 1s;
             /* Serial blink timing */
         }
+        /* --- SHIMMER EFFECT LOGIC --- */
+        
+        .divine-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            /* Important for shimmer to stay inside */
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+        
+        .divine-reveal {
+            font-size: 18px;
+            color: #00ffd0;
+            /* Powder Blue */
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 600;
+            opacity: 0;
+            animation: fastAppear 1s ease-out forwards;
+        }
+        
+        @keyframes fastAppear {
+            0% {
+                opacity: 0;
+                filter: blur(8px);
+                transform: translateY(5px);
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+        }
+        
+        .divine-shimmer {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            /* Shimmer light effect */
+            background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-25deg);
+            animation: shineBlade 2.5s infinite;
+        }
+        
+        @keyframes shineBlade {
+            0% {
+                left: -150%;
+            }
+            30% {
+                left: 150%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+        /* --- NEON GLOW BLINK EFFECT --- */
+        
+        .neon-keyword {
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            /* Standard normal color */
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            font-weight: 500;
+            margin-top: 5px;
+            animation: neonBlink 1.5s infinite;
+        }
+        
+        @keyframes neonBlink {
+            0%,
+            30%,
+            60%,
+            100% {
+                color: rgb(0, 255, 200);
+                text-shadow: none;
+            }
+            30%,
+            60% {
+                color: #00ffea;
+                text-shadow: 0 0 5px #00ffd0, 0 0 10px #00ffd0, 0 0 20px #00ffd0;
+            }
+        }
     </style>
 </head>
 
 <body style="color: rgb(255, 255, 255); text-align: center;">
-    <p><b style="font-size: xx-large; font-family: cooper ;"> Welcome to Neuvisoft!</b></p>
-
+    <!-- Shimmering Header Section -->
+    <div class="divine-container">
+        <div class="divine-reveal">Built with passion, driven by innovation</div>
+        <div class="divine-shimmer"></div>
+    </div>
+    <br><b style="font-size: xxx-large; font-family: cooper;">N E U V I S O F T</b></p>
+    <div class="neon-keyword">neuron • vision • software</div>
     <p style="color: rgb(255, 168, 55); ">Sir/Madam,
         <br> We are glad to have you here. Our website is developing in progress.We will add more useful items to make your work easier. We are working hard and fast to make this website more user friendly and attractive.
         <br> If you have any suggestion or question than mail us : <a href="mailto:adittya20das@gmail.com" style="color:aqua;">adittya20das@gmail.com</a>.
-        <br> Find us also in youtube :
+        <br><br> Find us also in youtube :
         <button class="neuvisoft-btn">&nbsp;
             <a href="https://www.youtube.com/@Neuvisoft" target="_blank">
                 <i class="fa-brands fa-youtube"></i> 
-                Neuvisoft
+                NEUVISOFT
             </a>
         </button>
     </p>
@@ -215,7 +328,7 @@
             <button class="All-buttons tools-btn-powder">
                    <a href="#" onclick="event.preventDefault();">
                 <i class="fa-solid fa-clock"></i> 
-                Coming Soon<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+                Coming More<span class="dots"><span>.</span><span>.</span><span>.</span></span>
             </a> 
         </h3>
     </p>
