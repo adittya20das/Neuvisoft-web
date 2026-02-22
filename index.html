@@ -415,23 +415,21 @@
             <br><br><b style="color: rgb(255, 247, 0);"><marquee width="%" direction="left" height=""><i>@ All rights reserved by Neuvisoft 2025. </i></marquee>
         </p>
         
-        <!-- Games Dialogue Box -->
+       <!-- Games Modal -->
     <div id="gamesModal" class="modal-overlay" onclick="handleOverlayClick(event)">
         <div class="modal-box">
             <span class="close-btn" onclick="toggleModal(false)">&times;</span>
-            <div class="modal-title">Play Online</div>
-            <a href="https://poki.com" target="_blank" class="game-option">
-                <i class="fa-solid fa-play"></i> Poki.com
-            </a>
+            <div class="modal-title">Online Games</div>
+            
             <a href="https://www.crazygames.com" target="_blank" class="game-option">
-                <i class="fa-solid fa-bolt"></i> CrazyGames.com
+                <i class="fa-solid fa-play" style="color: #00f6d9;"></i> CrazyGames 
             </a>
-            <a href="https://www.xbox.com/play" target="_blank" class="game-option">
-                <i class="fa-brands fa-xbox"></i> Xbox Cloud Gaming
+            <a href="https://www.poki.com" target="_blank" class="game-option">
+                <i class="fa-solid fa-play" style="color: #00ffd0;"></i> Poki Games
             </a>
-        </div>
+            </div>
     </div>
-
+    
     <script>
         function toggleModal(show) {
             const modal = document.getElementById('gamesModal');
