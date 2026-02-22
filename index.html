@@ -9,23 +9,145 @@
     <!-- Google Fonts for universal support -->
     <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cooper&display=swap" rel="stylesheet">
-
     <style>
-        /* 1. Button container style: Basic look */
+         :root {
+            --powder-blue: #00ffd0;
+            --yt-red: #ff0000;
+        }
         
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            text-align: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: #000;
+            line-height: 1.6;
+        }
+        
+        /* --- HEADER & LOGO --- */
+        
+        .divine-container {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            padding: 15px 20px;
+            margin-top: 30px;
+        }
+        
+        .divine-reveal {
+            font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+            color: var(--powder-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            opacity: 0;
+            animation: fastAppear 1s ease-out forwards;
+        }
+        
+        @keyframes fastAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+                filter: blur(8px);
+            }
+        }
+        
+        .divine-shimmer {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-25deg);
+            animation: shineBlade 3s infinite;
+        }
+        
+        @keyframes shineBlade {
+            0% {
+                left: -150%;
+            }
+            30%,
+            100% {
+                left: 150%;
+            }
+        }
+        
+        .logo-text {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-family: 'Righteous', cursive;
+            margin: 10px 0;
+            letter-spacing: 3px;
+            background: linear-gradient(to bottom, #fff, var(--powder-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .neon-keyword {
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            color: var(--powder-blue);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            animation: neonBlink 2s infinite;
+        }
+        
+        @keyframes neonBlink {
+            0%,
+            100% {
+                text-shadow: none;
+                opacity: 0.8;
+            }
+            50% {
+                text-shadow: 0 0 10px var(--powder-blue), 0 0 20px var(--powder-blue);
+                opacity: 1;
+            }
+        }
+        /* --- CONTENT BOX --- */
+        
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .welcome-msg {
+            color: #ffa837;
+            margin-bottom: 10px;
+            font-size: 0.985rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            margin: 10px;
+        }
+        /* --- BUTTON STYLES --- */
         .neuvisoft-btn {
-            height: 15px;
-            min-height: 30px;
-            padding: 10px 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent;
-            border: 2px solid #ff0000;
-            /* YouTube Red color border */
+            padding: 12px 24px;
+            background: transparent;
+            border: 2px solid var(--yt-red);
             border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.1s, border-color 0.1s;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--yt-red);
+            font-weight: bold;
+            margin-top: 15px;
             animation: neuvisoft-btn-neon-blink 3s infinite;
         }
         
@@ -40,238 +162,170 @@
                 border-color: #ff0000;
             }
         }
-        /* 2. Hover effect */
         
         .neuvisoft-btn:hover {
-            background-color: #ff0000;
-            /* YouTube Red background on hover */
-            border-color: #ff0000;
+            background-color: var(--yt-red);
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
         }
-        /* 3. Link (<a>) style: Text color fix */
+        /* --- BUTTON GRID SYSTEM --- */
         
-        .neuvisoft-btn a {
+        .grid-section {
+            margin: 40px 0;
+        }
+        
+        .grid-title {
+            color: #adff2f;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 0 10px;
+        }
+        
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1.5px solid var(--powder-blue);
+            border-radius: 12px;
+            padding: 15px;
             text-decoration: none;
-            color: #ff0000;
-            /* Initial text color */
-            font-weight: bold;
+            color: var(--powder-blue);
+            font-weight: 600;
             display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s;
-        }
-        /* 4. Link hover effect */
-        
-        .neuvisoft-btn:hover a {
-            color: #ffffff;
-            /* Text color on hover */
-        }
-        /* 5. Icon style */
-        
-        .neuvisoft-btn .fa-youtube {
-            font-size: 1.2em;
-        }
-        /*BODY WITH BACKGROUND*/
-        
-        body {
-            margin: 0rem;
-            padding: 0rem;
-            font-family: 'Inter', sans-serif;
-            color: rgb(255, 255, 255);
-            text-align: center;
-            /* Using the high-quality galaxy image from Unsplash */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-color: #000;
-        }
-        /* --- LOGO SECTION --- */
-        
-        .logo-text {
-            font-size: clamp(3rem, 10vw, 5rem);
-            font-family: 'Righteous', cursive;
-            margin: 10px 0;
-            letter-spacing: 3px;
-            background: linear-gradient(to bottom, #fff, #00ffd0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* --- BUTTON SECTION --- */
-        
-        .button-container {
-            margin-top: 20px;
-        }
-        /* --- POWDER BLUE BUTTON STYLE --- */
-        
-        .All-buttons {
-            height: 35px;
-            min-height: 30px;
-            padding: 10px 16px;
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: transparent;
-            border: px solid #00ffd0;
-            /* Powder Blue border color */
-            border-radius: 80px;
-            cursor: auto;
-            transition: background-color 0.1s, border-color 0.1s;
-            margin: 10px;
+            gap: 12px;
+            transition: all 0.1s ease;
+            backdrop-filter: blur(5px);
         }
         
-        .All-buttons a {
-            text-decoration: none;
-            color: #00ffd0;
-            /* Initial Text color */
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.3s;
+        .tool-card:hover {
+            background: var(--powder-blue);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 208, 0.3);
         }
         
-        .tools-btn-powder:hover {
-            background-color: #1e95a5;
-            border-color: #b0e0e6;
+        .tool-card i {
+            font-size: 1.2rem;
         }
+        /* Coming Soon style */
         
-        .tools-btn-powder a {
-            color: #b0e0e6;
-            /* Initial Tools Text color */
-        }
-        
-        .tools-btn-powder:hover a {
-            color: #000000;
-            /* Tools Text color on hover */
-        }
-        /* 3. Blinking dots animation for 'Coming Soon...' */
-        
-        @keyframes blink {
-            0% {
-                opacity: 0.2;
-            }
-            25% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.2;
-            }
-            100% {
-                opacity: 0.2;
-            }
+        .coming-soon {
+            grid-column: 1 / -1;
+            border-style: dashed;
+            opacity: 0.7;
+            cursor: default;
         }
         
         .dots span {
-            opacity: 0.2;
-            animation: blink 1s infinite;
+            animation: blink 1.5s infinite;
             display: inline-block;
-            font-size: 2em;
-            width: 0.2em;
-            text-align: left;
-        }
-        
-        .dots span:nth-child(1) {
-            animation-delay: 0.3s;
-            /* Serial blink timing */
         }
         
         .dots span:nth-child(2) {
-            animation-delay: 0.6s;
-            /* Serial blink timing */
+            animation-delay: 0.3s;
         }
         
         .dots span:nth-child(3) {
-            animation-delay: 0.9s;
-            /* Serial blink timing */
-        }
-        /* --- SHIMMER EFFECT LOGIC --- */
-        
-        .divine-container {
-            position: relative;
-            display: inline-block;
-            overflow: hidden;
-            /* Important for shimmer to stay inside */
-            padding: 10px 20px;
-            margin-top: 20px;
+            animation-delay: 0.6s;
         }
         
-        .divine-reveal {
-            font-size: clamp(0.8rem, 2.5vw, 1.1rem);
-            /* Responsive size */
-            color: #00ffd0;
-            /* Powder Blue */
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-            opacity: 0;
-            animation: fastAppear 1s ease-out forwards;
-        }
-        
-        @keyframes fastAppear {
-            0% {
-                opacity: 0;
-                filter: blur(8px);
-                transform: translateY(5px);
-            }
-            100% {
-                opacity: 1;
-                filter: blur(0);
-                transform: translateY(0);
-            }
-        }
-        
-        .divine-shimmer {
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 100%;
-            height: 100%;
-            /* Shimmer light effect */
-            background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transform: skewX(-25deg);
-            animation: shineBlade 2.5s infinite;
-        }
-        
-        @keyframes shineBlade {
-            0% {
-                left: -150%;
-            }
-            30% {
-                left: 150%;
-            }
-            100% {
-                left: 150%;
-            }
-        }
-        /* --- NEON GLOW BLINK EFFECT --- */
-        
-        .neon-keyword {
-            font-size: clamp(0.7rem, 2vw, 0.9rem);
-            color: rgb(255, 255, 255);
-            /* Standard normal color */
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 500;
-            margin-top: 20px;
-            animation: neonBlink 1.5s infinite;
-        }
-        
-        @keyframes neonBlink {
+        @keyframes blink {
             0%,
-            30%,
-            60%,
             100% {
-                color: rgb(0, 255, 200);
-                text-shadow: none;
+                opacity: 0.2;
             }
-            30%,
-            60% {
-                color: #00ffea;
-                text-shadow: 0 0 5px #00ffd0, 0 0 10px #00ffd0, 0 0 20px #00ffd0;
+            50% {
+                opacity: 1;
+            }
+        }
+        /* --- MODAL / DIALOG BOX STYLES --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-box {
+            background: #111;
+            border: 2px solid var(--powder-blue);
+            border-radius: 20px;
+            padding: 25px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 255, 208, 0.2);
+        }
+
+        .modal-title {
+            color: var(--powder-blue);
+            font-family: 'Righteous', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .game-option {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .game-option:hover {
+            background: rgba(0, 255, 208, 0.1);
+            border-color: var(--powder-blue);
+            transform: scale(1.02);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px; right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ff4d4d;
+        }
+        /* --- FOOTER --- */
+        
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: justify;
+            font-style: italic;
+            font-size: 0.8rem;
+        }
+        
+        marquee {
+            color: #fff700;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 600px) {
+            .button-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
+
+   
 </head>
 
 <body style="color: rgb(255, 255, 255); text-align: center;">
@@ -284,95 +338,112 @@
     <h1 class="logo-text">NEUVISOFT</h1>
     </p>
     <div class="neon-keyword">neuron • vision • software</div>
-    <p style="color: rgb(255, 168, 55); ">Sir/Madam,
+    <p class="welcome-msg">Sir/Madam,
         <br> We are glad to have you here. Our website is developing in progress.We will add more useful items to make your work easier. We are working hard and fast to make this website more user friendly and attractive.
-        <br> If you have any suggestion or question than mail us : <a href="mailto:adittya20das@gmail.com" style="color:aqua;">adittya20das@gmail.com</a>.
-        <br><br> Find us also in youtube :
-        <button class="neuvisoft-btn">&nbsp;
-            <a href="https://www.youtube.com/@Neuvisoft" target="_blank">
-                <i class="fa-brands fa-youtube"></i> 
-                NEUVISOFT
+        <br> Any suggestion or question? Mail us: <a href="mailto:adittya20das@gmail.com" style="color:aqua;">adittya20das@gmail.com</a>.
+
+        <!-- YouTube Section -->
+        <div>
+            Find us also in YouTube:
+            <br>
+            <a href="https://www.youtube.com/@Neuvisoft" target="_blank" class="neuvisoft-btn">
+                <i class="fa-brands fa-youtube"></i> NEUVISOFT
             </a>
-        </button>
-    </p>
+        </div>
 
-    <p>
-        <h3 style="color: greenyellow;">Everything is here for you:<br>
-            <br> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-            <a href="https://www.dailyusetools.com" target="_blank">
-                <i class="fa-solid fa-screwdriver-wrench" style="color: rgba(255, 255, 255, 0.992);"></i> 
-                DailyUseTools.com
+        <!-- Tools Grid Section -->
+        <div class="grid-section">
+            <h3 class="grid-title">Everything is here for you:</h3>
+
+            <div class="button-grid">
+                <!-- Row 1 -->
+                <a href="https://www.dailyusetools.com" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> DailyUseTools.com
+                </a>
+
+                <a href="https://classpad.net/note/#/tools/math" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-calculator" style="color: #00a2ff;"></i> Casio Calculator Online
+                </a>
+
+                <!-- Row 2 -->
+                <a href="https://eyes.nasa.gov/apps/solar-system/#/home?embed=true" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-earth-americas" style="color: #4dc3ff;"></i> Live Solar System Track
+                </a>
+
+                <a href="https://www.photopea.com/" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-image" style="color: #ff4d4d;"></i> Photoshop - Online
+                </a>
+
+                <!-- Row 3 -->
+                <a href="https://www.canva.com/" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-brush" style="color: #e000ff;"></i> Canva - Online
+                </a>
+
+                <a href="https://aistudio.google.com" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-brain"></i> Google AI Studio
+                </a>
+
+                <!-- Row 4 -->
+                <a href="https://4kwallpapers.com/" target="_blank" class="tool-card">
+                    <i class="fa-regular fa-images" style="color: #fbff00;"></i> 4K Wallpapers
+                </a>
+
+                <a href="https://www.remove.bg/" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-scissors"></i> Remove Background
+                </a>
+                <!-- Row 5 -->
+                <a href="https://notebooklm.google.com/" target="_blank" class="tool-card">
+                    <i class="fa-solid fa-book"></i> Ai Notebook
+                </a>
+                
+               <div class="tool-card" onclick="toggleModal(true)">
+                    <i class="fa-solid fa-gamepad" style="color: #fbff00;"></i> Games
+                </div>
+
+                <div class="tool-card coming-soon">
+                    <span>
+                        <i class="fa-solid fa-clock"></i> Coming More
+                        <span class="dots"><span>.</span><span>.</span><span>.</span></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+        <p class="welcome-msg"; style="color: #fff;"> Neuvisoft is founded by Adittya Das during his student period.Neuvisoft is the combination of 3 words: Neuron, Vision & Software.
+    It was founded on 4th June, 2025 as a Youtube Channel. However, the official journey of the channel started on 12th June, 2025. The name was inspired from Microsoft, Intel Corporation and other tech giants.</i>
+            <br><br><b style="color: rgb(255, 247, 0);"><marquee width="%" direction="left" height=""><i>@ All rights reserved by Neuvisoft 2025. </i></marquee>
+        </p>
+        
+        <!-- Games Dialogue Box -->
+    <div id="gamesModal" class="modal-overlay" onclick="handleOverlayClick(event)">
+        <div class="modal-box">
+            <span class="close-btn" onclick="toggleModal(false)">&times;</span>
+            <div class="modal-title">Play Online</div>
+            <a href="https://poki.com" target="_blank" class="game-option">
+                <i class="fa-solid fa-play"></i> Poki.com
             </a>
-        </button> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                <a href="https://classpad.net/note/#/tools/math" target="_blank">
-                 <i class="fa-solid fa-calculator text-sky-600 text-xl"></i> 
-                 Casio Calculator Online
-                </a>
-            </button>
-            <br><br> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                <a href="https://eyes.nasa.gov/apps/solar-system/#/home?embed=true" target="_blank">
-                 <i class="fa-solid fa-earth-americas" style="color: rgb(0, 208, 255);"></i> 
-                 Live Solar System Track
-                </a>
-            </button> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                <a href="https://www.photopea.com/" target="_blank">
-                 <i class="fa-solid fa-image text-red-600 text-xl"></i> 
-                    Photoshop - Online
-                </a>
-            </button>
+            <a href="https://www.crazygames.com" target="_blank" class="game-option">
+                <i class="fa-solid fa-bolt"></i> CrazyGames.com
+            </a>
+            <a href="https://www.xbox.com/play" target="_blank" class="game-option">
+                <i class="fa-brands fa-xbox"></i> Xbox Cloud Gaming
+            </a>
+        </div>
+    </div>
 
-            <br><br> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                <a href="https://www.canva.com/" target="_blank">
-                 <i class="fa-solid fa-brush" style="color: rgb(238, 0, 255);"></i> 
-                    Canva - Online
-                </a>
-            </button> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                    <a href="https://aistudio.google.com" target="_blank">
-                    <i class="fa-solid fa-brain"></i> 
-                        Google AI Studio
-                    </a>
-                </button>
-            <br><br> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                    <a href="https://4kwallpapers.com/" target="_blank">
-                     <i class="fa-regular fa-images" style="color: rgb(255, 242, 0);"></i> 
-                        4K Wallpapers
-                        </a>
-                </button> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                    <a href="https://www.remove.bg/" target="_blank">
-                     <i class="fa-solid fa-scissors"></i> 
-                        Remove Image Background
-                    </a>
-                </button>
-            <br> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                    <a href="https://notebooklm.google.com/" target="_blank">
-                     <i class="fa-solid fa-book"></i> 
-                        Ai Notebook 
-                    </a>
-                </button> &nbsp;
-            <br><br> &nbsp;
-            <button class="All-buttons tools-btn-powder">
-                   <a href="#" onclick="event.preventDefault();">
-                <i class="fa-solid fa-clock"></i> 
-                Coming More<span class="dots"><span>.</span><span>.</span><span>.</span></span>
-            </a> 
-        </h3>
-    </p>
+    <script>
+        function toggleModal(show) {
+            const modal = document.getElementById('gamesModal');
+            modal.style.display = show ? 'flex' : 'none';
+        }
 
-
-    <br><br>
-    <p style="color: rgba(255, 255, 255, 0.992);"><b><i> Neuvisoft is founded by Adittya Das during his student period.Neuvisoft is the combination of 3 words: Neuron, Vision & Software.
-    It was founded on 4th June, 2025 as a Youtube Channel. However, the official journey of the channel started on 12th June, 2025. The name was inspired from Microsoft, Intel Corporation and other tech giants.</b></i>
-        <br><br><b style="color: rgb(255, 247, 0);"><marquee width="%" direction="left" height="">@ All rights reserved by Neuvisoft 2025. </marquee></b>
-    </p>
+        function handleOverlayClick(e) {
+            if (e.target.id === 'gamesModal') {
+                toggleModal(false);
+            }
+        }
+    </script>
 </body>
 
 </html>
